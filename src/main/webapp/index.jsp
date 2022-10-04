@@ -21,7 +21,7 @@
 
 <h1>eller opret dig som brugere</h1>
 
-${requestScope.beskad}
+${requestScope.besked}
 
 <form action="LoginServlet" method="post">
     <label for="OpretNavn">Navn:</label><br>

@@ -11,6 +11,6 @@
     <title>Bruger side</title>
 </head>
 <body>
-<h1> Velkommen til din brugerside</h1>
+<h1> Velkommen til din brugerside ${requestScope.navn}</h1>
 </body>
 </html>

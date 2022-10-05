@@ -15,5 +15,14 @@
 
 dit sessionId er ${requestScope.sessionId}
 
+<br>
+<br>
+<br>
+
+<form action="logudServlet">
+
+    <input type="submit" value="log af">
+</form>
+
 </body>
 </html>

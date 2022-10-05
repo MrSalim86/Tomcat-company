@@ -6,16 +6,14 @@ import java.util.Map;
 import java.util.TreeMap;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
-public class LoginServlet extends HttpServlet
-{
+public class LoginServlet extends HttpServlet {
 
 
     Map<String, Bruger> brugerMap = new TreeMap<>();
 
-    public void init()
-    {
-        Bruger bruger1 = new Bruger("Mohamed","1");
-        Bruger bruger2 = new Bruger("Ali","1");
+    public void init() {
+        Bruger bruger1 = new Bruger("Mohamed", "1");
+        Bruger bruger2 = new Bruger("Ali", "1");
 
         inset(bruger1);
         inset(bruger2);
@@ -37,12 +35,10 @@ public class LoginServlet extends HttpServlet
     }
 
 
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-     //   System.out.println("du ramte login serletten via Get");
+        //   System.out.println("du ramte login serletten via Get");
 
         String loginbesked = "";
 
@@ -50,13 +46,13 @@ public class LoginServlet extends HttpServlet
         String navn = request.getParameter("navn");
         String kode = request.getParameter("kode");
 
-        if(!brugerMap.containsKey(navn)) {
+        if (!brugerMap.containsKey(navn)) {
 
 
             loginbesked = "bruger med det navn findes ikke, prøv igen går til opret";
 
-            request.setAttribute("loginbesked",loginbesked);
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+            request.setAttribute("loginbesked", loginbesked);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
 
         }
 
@@ -64,13 +60,16 @@ public class LoginServlet extends HttpServlet
 
             loginbesked = "Koden er forkert, prøv igen";
 
-            request.setAttribute("loginbesked",loginbesked);
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+            request.setAttribute("loginbesked", loginbesked);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
+        // alt er gået fint
+
+        HttpSession session = request.getSession();
 
 
-
+        request.setAttribute("sessionId", session.getId());
         request.getRequestDispatcher("WEB-INF/Bruger side.jsp").forward(request, response);
     }
 
@@ -103,7 +102,24 @@ public class LoginServlet extends HttpServlet
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
-        request.setAttribute("navn",opretNavn);
+
+        if (brugerMap.containsKey(opretNavn)) {
+
+            besked = "en bruger med det navn findes allerede, prøv igen";
+            request.setAttribute("besked", besked);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+
+        }
+
+
+        inset(new Bruger(opretNavn, kode1));
+
+        HttpSession session = request.getSession();
+
+        request.setAttribute("sessionId", session.getId());
+        request.setAttribute("navn", opretNavn);
+
+        request.setAttribute("navn", opretNavn);
 
         request.getRequestDispatcher("WEB-INF/Bruger side.jsp").forward(request, response);
 

@@ -12,5 +12,8 @@
 </head>
 <body>
 <h1> Velkommen til din brugerside ${requestScope.navn}</h1>
+
+dit sessionId er ${requestScope.sessionId}
+
 </body>
 </html>

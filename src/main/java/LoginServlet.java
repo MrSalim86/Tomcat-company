@@ -10,7 +10,7 @@ public class LoginServlet extends HttpServlet
 {
 
 
-    Map<String, Bruger> brugerMap = new TreeMap<>()
+    Map<String, Bruger> brugerMap = new TreeMap<>();
 
     public void init()
     {
@@ -43,6 +43,32 @@ public class LoginServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
      //   System.out.println("du ramte login serletten via Get");
+
+        String loginbesked = "";
+
+
+        String navn = request.getParameter("navn");
+        String kode = request.getParameter("kode");
+
+        if(!brugerMap.containsKey(navn)) {
+
+
+            loginbesked = "bruger med det navn findes ikke, prøv igen går til opret";
+
+            request.setAttribute("loginbesked",loginbesked);
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+
+        }
+
+        if (!brugerMap.get(navn).getKode().equals(kode)) {
+
+            loginbesked = "Koden er forkert, prøv igen";
+
+            request.setAttribute("loginbesked",loginbesked);
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+        }
+
+
 
 
         request.getRequestDispatcher("WEB-INF/Bruger side.jsp").forward(request, response);

@@ -9,7 +9,10 @@
 </h1>
 <br/>
 
+
 <h1>Login for eksistende brugere</h1>
+
+${requestScope.loginbesked}
 
 <form action="LoginServlet" method="get">
     <label for="navn">Navn:</label><br>

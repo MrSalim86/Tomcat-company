@@ -16,7 +16,7 @@
 dit sessionId er ${requestScope.sessionId}
 
 <br>
-<br>
+llbongbong<br>
 <br>
 
 
@@ -28,6 +28,9 @@ dit sessionId er ${requestScope.sessionId}
 </form>
 
 du har nu tilføjer ${sessionScope.antal} emner til din liste
+<br>
+
+de tilføjede emner er følgende ${sessionScope.emneListe}
 
 <br>
 <br>

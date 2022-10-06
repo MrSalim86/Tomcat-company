@@ -69,7 +69,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
 
-        request.setAttribute("sessionId", session.getId());
+        session.setAttribute("sessionId", session.getId());
         request.getRequestDispatcher("WEB-INF/Bruger side.jsp").forward(request, response);
     }
 
@@ -84,7 +84,6 @@ public class LoginServlet extends HttpServlet {
         String besked = "";
 
         if (opretNavn.equals("") || kode1.equals("") || kode2.equals("")) {
-
             besked = "huske alle felter skal udfyldes";
 
             System.out.println("opret bruger ikke udfyldt korrekt");
@@ -116,9 +115,7 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        request.setAttribute("sessionId", session.getId());
-        request.setAttribute("navn", opretNavn);
-
+        session.setAttribute("sessionId", session.getId());
         request.setAttribute("navn", opretNavn);
 
         request.getRequestDispatcher("WEB-INF/Bruger side.jsp").forward(request, response);

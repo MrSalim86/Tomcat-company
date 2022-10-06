@@ -36,5 +36,9 @@ ${requestScope.besked}
     <input type="submit" value="opret">
 </form>
 
+<form action="/action_page.php">
+
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>

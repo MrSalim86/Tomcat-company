@@ -11,13 +11,18 @@ public class LoginServlet extends HttpServlet {
 
     Map<String, Bruger> brugerMap = new TreeMap<>();
 
-    public void init() {
+    public void init()
+    {
+        ServletContext servletContext = getServletContext();
+
+        Map<String, Bruger> ContexBrugerMap = new TreeMap<>();
+
         Bruger bruger1 = new Bruger("Mohamed", "1");
         Bruger bruger2 = new Bruger("Ali", "1");
 
-        inset(bruger1);
-        inset(bruger2);
-        udskriv();
+        ContexBrugerMap.put(bruger1.getNavn(),bruger1);
+        ContexBrugerMap.put(bruger1.getNavn(),bruger2);
+
 
     }
 

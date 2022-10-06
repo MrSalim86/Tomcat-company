@@ -24,6 +24,7 @@ public class LoginServlet extends HttpServlet {
         ContexBrugerMap.put(bruger1.getNavn(),bruger2);
 
 
+
     }
 
     private void inset(Bruger bruger) {

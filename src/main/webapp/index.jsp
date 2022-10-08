@@ -38,7 +38,7 @@ ${requestScope.besked}
 
 <form action="/action_page.php">
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Administrater menu">
 </form>
 </body>
 </html>

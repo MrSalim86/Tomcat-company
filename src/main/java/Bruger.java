@@ -43,29 +43,29 @@ public class Bruger
     }
 
     @Override
-    public String toString()
-    {
-        return "Bruger{" + "navn='" + navn + '\'' + ", kode='" + kode + '\'' + '}';}
+    public String toString() {return "Bruger{" + "navn='" + navn + '\'' + ", kode='" + kode + '\'' + '}';}
 
     public int withdraw (int i) {
 
         if (i < 0) {
-            transaktioner.add("forsøger at hæve et negativt beløb - kunden er idiot");
+            transaktioner.add(navn + "hæv "+ i + "ny saldo " + saldo + transaktioner.size()+1 );
             return saldo;
         }
         saldo = saldo -i;
-        transaktioner.add("Hæver " + i + " , ny saldo er " + saldo);
+
+        transaktioner.add(navn + "hæv "+ i + "ny saldo " + saldo + transaktioner.size()+1 );
         return saldo;
     }
 
     public int deposit (int i) {
 
         if (i < 0) {
-            transaktioner.add("forsøger at hæve et negativt beløb - kunden er idiot");
+            transaktioner.add(navn + "indsæt "+ i + "ny saldo " + saldo + transaktioner.size()+1 );
             return saldo;
         }
         saldo = saldo +i;
-        transaktioner.add("kunden indsætter " + i + "på kontoen. Ny saldo er " + saldo);
+
+        transaktioner.add(navn + "indsæt "+ i + "ny saldo " + saldo + transaktioner.size()+1 );
         return saldo;
     }
 }

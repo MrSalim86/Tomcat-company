@@ -1,3 +1,5 @@
+
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -78,7 +80,7 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-
+        contexBrugerMap.get(navn).setActive(true);
         session.setAttribute("sessionId", session.getId());
         request.getRequestDispatcher("WEB-INF/Bruger side.jsp").forward(request, response);
     }
@@ -126,14 +128,16 @@ public class LoginServlet extends HttpServlet {
         }
 
 
-        contexBrugerMap.put(opretNavn, new Bruger(opretNavn,kode1));
+        Bruger bruger = new Bruger(opretNavn, kode1);
+
+        contexBrugerMap.put(bruger.getNavn(), bruger);
 
         getServletContext().setAttribute("contexBrugerMap",contexBrugerMap);
 
         HttpSession session = request.getSession();
 
         session.setAttribute("sessionId", session.getId());
-        request.setAttribute("navn", opretNavn);
+        session.setAttribute("bruger", bruger);
 
         request.getRequestDispatcher("WEB-INF/Bruger side.jsp").forward(request, response);
 

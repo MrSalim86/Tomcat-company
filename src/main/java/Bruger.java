@@ -6,6 +6,7 @@ public class Bruger
     private String navn;
     private String kode;
     private int saldo;
+    private boolean active;
 
     private List<String> transaktioner = new ArrayList<>();
 
@@ -13,13 +14,15 @@ public class Bruger
     {
         this.navn = navn;
         this.kode = kode;
+        this.active = true;
         this.saldo = 0;
     }
 
-    public Bruger(String navn, String kode,int saldo)
+    public Bruger(String navn, String kode, int saldo)
     {
         this.navn = navn;
         this.kode = kode;
+        this.active = true;
         this.saldo = saldo;
     }
 
@@ -34,13 +37,22 @@ public class Bruger
         return kode;
     }
 
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public List<String> getTransaktioner() {
         return transaktioner;
     }
 
-    public int getSaldo() {
-        return saldo;
-    }
 
     @Override
     public String toString() {return "Bruger{" + "navn='" + navn + '\'' + ", kode='" + kode + '\'' + '}';}

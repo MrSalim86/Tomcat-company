@@ -12,9 +12,14 @@
     <title>Bruger side</title>
 </head>
 <body>
-<h1> Velkommen til din brugerside ${requestScope.navn}</h1>
+<h1> Velkommen til din brugerside ${sessionScope.bruger.navn}</h1>
+
 
 dit sessionId er ${sessionScope.sessionId}
+<br>
+activ er sat til ${sessionScope.bruger.active}
+<br>
+
 
 
 

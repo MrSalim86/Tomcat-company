@@ -36,9 +36,10 @@ ${requestScope.besked}
     <input type="submit" value="opret">
 </form>
 
-<form action="/action_page.php">
 
-    <input type="submit" value="Administrater menu">
+<form action="AdminServlet">
+
+    <input type="submit" value="Admin">
 </form>
 </body>
 </html>

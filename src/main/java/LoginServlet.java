@@ -80,7 +80,8 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        contexBrugerMap.get(navn).setActive(true);
+       // contexBrugerMap.get(navn).setActive(false);
+        session.setAttribute("bruger", contexBrugerMap.get(navn));
         session.setAttribute("sessionId", session.getId());
         request.getRequestDispatcher("WEB-INF/Bruger side.jsp").forward(request, response);
     }

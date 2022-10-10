@@ -49,11 +49,15 @@ public class TilEmneServlet extends HttpServlet {
 
         String emne = request.getParameter("emne");
 
+        Bruger bruger = (Bruger) session.getAttribute("bruger");
 
-        stringSetContext.add(emne);
-        emneListe.add(emne);      //session
+        System.out.println("hvad er brugeren sat til " + bruger.isActive());
 
-        emneListeRe.add(emne);  //request
+        if (bruger.isActive() ) {
+            stringSetContext.add(emne);
+            emneListe.add(emne);      //session
+            emneListeRe.add(emne);  //request
+        }
 
         httpContext.setAttribute("stringSetContext", stringSetContext);
         request.setAttribute("emneListRe", emneListeRe);

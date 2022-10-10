@@ -12,6 +12,14 @@
     <title>Bruger side</title>
 </head>
 <body>
+
+<form action="AdminServlet">
+
+    <input type="submit" value="Admin">
+
+</form>
+
+
 <h1> Velkommen til din brugerside ${sessionScope.bruger.navn}</h1>
 
 
